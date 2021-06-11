@@ -3,6 +3,7 @@ import { TodoForm } from './TodoForm'
 import { Todo } from './Todo'
  
 export const TodoList = () => {
+    console.log('rendering')
     // Here todos and setTodos are passed as state because everytime 
     //our newTodos array is updated we need to reload and show the newTodos 
     const [todos, setTodos] = useState([])
@@ -15,9 +16,15 @@ export const TodoList = () => {
             return;
         }
 
-        const newTodos = [todo, ...todos]; // this is the todolist and keeps updating as new todos are passed
+        console.log(todos)
+        todos.push(todo)
+        const testTodos = [...todos]
+        console.log(testTodos)
+        // this is the todolist and keeps updating as new todos are passed
 
-        setTodos(newTodos); // everytime the newTodos is updated it is reloaded and rendered because of this
+        setTodos(todos); // everytime the newTodos is updated it is reloaded and rendered because of this
+        
+        
     };
 
     const updateTodo = (todoId, newValue) => {

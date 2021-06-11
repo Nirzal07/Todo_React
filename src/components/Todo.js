@@ -12,7 +12,11 @@ export function Todo({todos, completeTodo, removeTodo, updateTodo}) {
 
     const submitUpdate = value => {
         // when the todo is edited and submit is pressed
+        // update todo is defined in TodoList because TodoList component deals with the list of todo item
+        // and updateTodo needs to update the existing todo
         updateTodo(edit.id, value);
+
+        // resets the update 
         setEdit({
             id: null,
             value: ''
@@ -44,3 +48,7 @@ export function Todo({todos, completeTodo, removeTodo, updateTodo}) {
     ));
     return output
 }
+
+// line 41 gives the id and text of the todo to be edited which triggers the setEdit function
+// which creates a TodoList Component with value as todo.text as in line 41 itself
+// Also the TodoForm for this one re-renders below the addtodo TodoForm

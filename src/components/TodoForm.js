@@ -19,8 +19,7 @@ export const TodoForm = (props) => {
 
     const preventSubmit = (e) => { 
         e.preventDefault();
-        // on clicking the submit bottom the below line provides the blueprint for
-        // for the new TodoItem by providing a unique id and text
+        // on clicking the submit bottom the below line either creates of updates the todo with the given value
         props.onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: task
@@ -64,4 +63,3 @@ export const TodoForm = (props) => {
         </div>
         )
 }
-
